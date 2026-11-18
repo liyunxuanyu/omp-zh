@@ -46,10 +46,29 @@ jobs:
           node scripts/build-map.mjs
           node scripts/apply.mjs --upstream upstream
           node scripts/coverage.mjs || true
+          echo "=== 抽样检查补丁是否生效 ==="
+          grep -c "检查更新" upstream/packages/coding-agent/src/modes/settings.ts || true
+          grep -n "检查更新" upstream/packages/coding-agent/src/modes/settings.ts | head -3 || true
+          grep -c "提供商" upstream/packages/coding-agent/src/session/settings.ts || true
 
       - name: Cross-compile Windows x64
         working-directory: upstream/packages/coding-agent
         run: CROSS_TARGET=win32-x64 bun run build
+
+      - name: Verify Chinese strings in binary
+        run: |
+          BIN="$(find upstream -maxdepth 4 -type f -name 'omp-*' -size +20M | head -1)"
+          echo "BIN=$BIN"
+          python3 - "$BIN" <<'PY2'
+          import sys,re
+          data=open(sys.argv[1],'rb').read()
+          u8=len(re.findall(rb'(?:[\xe4-\xe9][\x80-\xbf]{2}){2,}', data))
+          # UTF-16LE CJK 连续片段
+          u16=len(re.findall(rb'(?:[\x00-\xff][\x4e-\x9f]){2,}', data))
+          print(f"UTF-8 CJK 片段: {u8}, UTF-16LE CJK 片段: {u16}")
+          for probe in ["检查更新","提供商","子代理","会话","上下文"]:
+              print(probe, "utf8:", data.count(probe.encode()), "utf16:", data.count(probe.encode('utf-16-le')))
+          PY2
 
       - name: Collect artifact
         run: |
