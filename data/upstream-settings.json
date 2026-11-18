@@ -48,21 +48,9 @@
   "file": "autolearn/settings.ts"
  },
  {
-  "id": "autolearn.minToolCalls",
-  "label": "",
-  "description": "",
-  "file": "autolearn/settings.ts"
- },
- {
   "id": "edit.mode",
   "label": "Edit Mode",
   "description": "Select the edit tool variant (replace, patch, hashline, or apply_patch); none removes the edit tool and keeps bash enabled",
-  "file": "edit/settings.ts"
- },
- {
-  "id": "edit.modelVariants",
-  "label": "",
-  "description": "",
   "file": "edit/settings.ts"
  },
  {
@@ -282,12 +270,6 @@
   "file": "task/settings.ts"
  },
  {
-  "id": "task.agentSoftRequestBudget",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
   "id": "task.softRequestBudgetNotice",
   "label": "Soft Request Budget Notice",
   "description": "Inject one steering notice when a subagent crosses its soft request budget, asking it to wrap up before the 1.5x forced-yield stop.",
@@ -297,54 +279,6 @@
   "id": "task.maxEffort",
   "label": "Maximum Per-Spawn Effort",
   "description": "Maximum reasoning effort allowed for the task tool's per-spawn effort hint or a per-call model. An explicit `:level` is clamped to the highest supported effort at or below this ceiling, and an omitted `:level` inherits the agent's thinking level capped at this value; cold revival re-applies the cap. Unset, `:inherit` and `:off` keep their existing meaning. A per-call model must support an effort at or below this ceiling; the default preserves the model's full range.",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.disabledAgents",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentModelOverrides",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentServiceTierOverrides",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentCompactionThresholdOverrides",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentAccountPools",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentPrewalk",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentPrewalkAuto",
-  "label": "",
-  "description": "",
-  "file": "task/settings.ts"
- },
- {
-  "id": "task.agentAdvisor",
-  "label": "",
-  "description": "",
   "file": "task/settings.ts"
  },
  {
@@ -456,42 +390,6 @@
   "file": "mnemopi/settings.ts"
  },
  {
-  "id": "mnemopi.retainEveryNTurns",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
-  "id": "mnemopi.recallLimit",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
-  "id": "mnemopi.recallContextTurns",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
-  "id": "mnemopi.recallMaxQueryChars",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
-  "id": "mnemopi.injectionTokenLimit",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
-  "id": "mnemopi.debug",
-  "label": "",
-  "description": "",
-  "file": "mnemopi/settings.ts"
- },
- {
   "id": "eval.py",
   "label": "Python Eval Backend",
   "description": "Allow the eval tool to dispatch Python cells to the IPython kernel",
@@ -528,12 +426,6 @@
   "file": "eval/settings.ts"
  },
  {
-  "id": "eval.autoBackground.thresholdMs",
-  "label": "",
-  "description": "",
-  "file": "eval/settings.ts"
- },
- {
   "id": "python.kernelMode",
   "label": "Python Kernel Mode",
   "description": "Keep the IPython kernel alive across eval calls or start fresh each time",
@@ -567,12 +459,6 @@
   "id": "stt.enabled",
   "label": "Speech-to-Text",
   "description": "Enable speech-to-text input via microphone",
-  "file": "stt/settings.ts"
- },
- {
-  "id": "stt.language",
-  "label": "",
-  "description": "",
   "file": "stt/settings.ts"
  },
  {
@@ -678,48 +564,6 @@
   "file": "web/settings.ts"
  },
  {
-  "id": "searxng.token",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.basicUsername",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.basicPassword",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.categories",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.engines",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.language",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
-  "id": "searxng.safesearch",
-  "label": "",
-  "description": "",
-  "file": "web/settings.ts"
- },
- {
   "id": "hindsight.apiUrl",
   "label": "Hindsight API URL",
   "description": "Hindsight server URL (Cloud or self-hosted)",
@@ -738,12 +582,6 @@
   "file": "hindsight/settings.ts"
  },
  {
-  "id": "hindsight.bankIdPrefix",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
   "id": "hindsight.scoping",
   "label": "Hindsight Scoping",
   "description": "global = one shared bank; per-project = isolated bank per cwd; per-project-tagged = shared bank with project tags so global + project memories merge on recall",
@@ -753,18 +591,6 @@
   "id": "hindsight.globalScope",
   "label": "Hindsight Global Scope",
   "description": "Let retain and learn take scope: global, which stores a memory without the project tag so every project recalls it. Needs global or per-project-tagged scoping",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.bankMission",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.retainMission",
-  "label": "",
-  "description": "",
   "file": "hindsight/settings.ts"
  },
  {
@@ -786,84 +612,6 @@
   "file": "hindsight/settings.ts"
  },
  {
-  "id": "hindsight.retainEveryNTurns",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.retainOverlapTurns",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.retainContext",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallBudget",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallMaxTokens",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallContextTurns",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallMaxQueryChars",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallTypes",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.debug",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.requestTimeoutMs",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.reflectTimeoutMs",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.recallTimeoutMs",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.retainTimeoutMs",
-  "label": "",
-  "description": "",
-  "file": "hindsight/settings.ts"
- },
- {
   "id": "hindsight.mentalModelsEnabled",
   "label": "Hindsight Mental Models",
   "description": "Read curated reflect summaries (mental models) into developer instructions at boot. Loads existing models on the bank — does not write. Pair with hindsight.mentalModelAutoSeed to also auto-create the built-in seed set.",
@@ -873,12 +621,6 @@
   "id": "hindsight.mentalModelAutoSeed",
   "label": "Hindsight Mental Model Auto-Seed",
   "description": "At session start, create any built-in mental models (project-conventions, project-decisions, user-preferences) that do not yet exist on the bank.",
-  "file": "hindsight/settings.ts"
- },
- {
-  "id": "hindsight.mentalModelMaxRenderChars",
-  "label": "",
-  "description": "",
   "file": "hindsight/settings.ts"
  },
  {
@@ -939,18 +681,6 @@
   "id": "images.urls.backends",
   "label": "Image URL Backends",
   "description": "Ordered destinations tried when publishing images for provider access",
-  "file": "blob-broker/settings.ts"
- },
- {
-  "id": "images.urls.options",
-  "label": "",
-  "description": "",
-  "file": "blob-broker/settings.ts"
- },
- {
-  "id": "images.urls.credentials",
-  "label": "",
-  "description": "",
   "file": "blob-broker/settings.ts"
  },
  {
@@ -1038,90 +768,6 @@
   "file": "lsp/settings.ts"
  },
  {
-  "id": "gc.blobs",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.archive",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.wal",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.coldArchiveAfterDays",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.retainNewestGlobal",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.retainNewestPerCwd",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.stale",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.staleRetainNewest",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.staleRetainDays",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.compress",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.compressAfterDays",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.strip",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.stripAfterDays",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
-  "id": "gc.autoCompress",
-  "label": "",
-  "description": "",
-  "file": "cli/gc-settings.ts"
- },
- {
   "id": "tts.localVoice",
   "label": "Local TTS Voice",
   "description": "Phonon voice used by the local TTS backend (American/British, female/male)",
@@ -1162,42 +808,6 @@
   "label": "Speech Vocalization Speed",
   "description": "Speaking rate when reading the assistant's output aloud. 1 = normal; clamped to 0.8–1.3",
   "file": "tts/settings.ts"
- },
- {
-  "id": "commit.mapReduceEnabled",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
- },
- {
-  "id": "commit.mapReduceThreshold",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
- },
- {
-  "id": "commit.mapBatchTokenBudget",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
- },
- {
-  "id": "commit.cacheEnabled",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
- },
- {
-  "id": "commit.cacheTtlDays",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
- },
- {
-  "id": "commit.changelogMaxDiffChars",
-  "label": "",
-  "description": "",
-  "file": "commit/settings.ts"
  },
  {
   "id": "secrets.enabled",
@@ -1242,36 +852,6 @@
   "file": "sharpshooter/settings.ts"
  },
  {
-  "id": "sharpshooter.minPromptLength",
-  "label": "",
-  "description": "",
-  "file": "sharpshooter/settings.ts"
- },
- {
-  "id": "sharpshooter.intervalMinutes",
-  "label": "",
-  "description": "",
-  "file": "sharpshooter/settings.ts"
- },
- {
-  "id": "sharpshooter.injectionTokenLimit",
-  "label": "",
-  "description": "",
-  "file": "sharpshooter/settings.ts"
- },
- {
-  "id": "shellPath",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "shellCommandPrefix",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
   "id": "bash.enabled",
   "label": "Bash",
   "description": "Enable the bash tool for shell command execution",
@@ -1314,12 +894,6 @@
   "file": "exec/settings.ts"
  },
  {
-  "id": "bashInterceptor.patterns",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
   "id": "bash.direnv",
   "label": "direnv Auto-Load",
   "description": "Auto-load a repo's direnv/devenv `.envrc` into the bash session so devenv tools and env vars are present without manual `direnv exec`. Honors direnv's allow list: an `.envrc` you haven't `direnv allow`ed is never executed",
@@ -1338,64 +912,10 @@
   "file": "exec/settings.ts"
  },
  {
-  "id": "shellMinimizer.settingsPath",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "shellMinimizer.only",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "shellMinimizer.except",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "shellMinimizer.maxCaptureBytes",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
   "id": "shellMinimizer.sourceOutlineLevel",
   "label": "Shell Minimizer Source Outline",
   "description": "Source outline mode for cat/read of source files: default or aggressive",
   "file": "exec/settings.ts"
- },
- {
-  "id": "shellMinimizer.legacyFilters",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "bash.autoBackground.thresholdMs",
-  "label": "",
-  "description": "",
-  "file": "exec/settings.ts"
- },
- {
-  "id": "models.noJudge",
-  "label": "",
-  "description": "",
-  "file": "config/auxiliary-model-policy.ts"
- },
- {
-  "id": "models.noSpotlight",
-  "label": "",
-  "description": "",
-  "file": "config/auxiliary-model-policy.ts"
- },
- {
-  "id": "models.offline",
-  "label": "",
-  "description": "",
-  "file": "config/auxiliary-model-policy.ts"
  },
  {
   "id": "lsp.diagnosticsOnWrite",
@@ -1404,87 +924,15 @@
   "file": "config/registry.ts"
  },
  {
-  "id": "auth.broker.url",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "auth.broker.token",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "auth.accountPolicies",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
   "id": "auth.unpausedProviders",
   "label": "Unpaused Providers",
   "description": "Turn providers we paused back on: login, token refresh and stored credentials work again. Each pause names the account risk you accept. Project settings cannot set this",
   "file": "config/model-settings.ts"
  },
  {
-  "id": "enabledModels",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "enabledProviders",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "disabledProviders",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
   "id": "modelRoleStorage",
   "label": "Model Role Storage",
   "description": "Where model selector role assignments are saved",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "modelRoles",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "judgment.attemptTimeoutMs",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "modelPresets",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "modelTags",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "modelProviderOrder",
-  "label": "",
-  "description": "",
-  "file": "config/model-settings.ts"
- },
- {
-  "id": "cycleOrder",
-  "label": "",
-  "description": "",
   "file": "config/model-settings.ts"
  },
  {
@@ -1692,12 +1140,6 @@
   "file": "tools/settings.ts"
  },
  {
-  "id": "find.hitThreshold",
-  "label": "",
-  "description": "",
-  "file": "tools/settings.ts"
- },
- {
   "id": "debug.enabled",
   "label": "Debug",
   "description": "Enable the debug tool for DAP-based debugging",
@@ -1707,12 +1149,6 @@
   "id": "launch.enabled",
   "label": "Services",
   "description": "Enable named bash services and proc:// supervision for shared long-running project processes",
-  "file": "tools/settings.ts"
- },
- {
-  "id": "launch.persist",
-  "label": "",
-  "description": "",
   "file": "tools/settings.ts"
  },
  {
@@ -1884,12 +1320,6 @@
   "file": "tools/settings.ts"
  },
  {
-  "id": "async.maxJobs",
-  "label": "",
-  "description": "",
-  "file": "tools/settings.ts"
- },
- {
   "id": "async.printWake",
   "label": "Wake Print Mode on Job Results",
   "description": "In print mode (-p, --mode json), keep running after the last prompt while this run's background jobs are active, and start another turn in the same session with each job's result; exits once no job or result is pending. Off: print mode exits after its prompts and cancels running jobs",
@@ -1935,18 +1365,6 @@
   "id": "dev.autoqaPush.endpoint",
   "label": "Auto QA Push Endpoint",
   "description": "Full URL receiving Auto QA JSON reports (default https://qa.omp.sh/v1/grievances)",
-  "file": "tools/settings.ts"
- },
- {
-  "id": "dev.autoqaPush.token",
-  "label": "",
-  "description": "",
-  "file": "tools/settings.ts"
- },
- {
-  "id": "dev.autoqaConsent",
-  "label": "",
-  "description": "",
   "file": "tools/settings.ts"
  },
  {
@@ -2020,12 +1438,6 @@
   "label": "Screenshot Directory",
   "description": "Directory to save screenshots. If unset, screenshots go to a temp file. Supports ~. Examples: ~/Downloads, ~/Desktop, /sdcard/Download (Android)",
   "file": "tools/browser/settings.ts"
- },
- {
-  "id": "setupVersion",
-  "label": "",
-  "description": "",
-  "file": "modes/settings.ts"
  },
  {
   "id": "autoResume",
@@ -2126,12 +1538,6 @@
  {
   "id": "statusLine.rightSegments",
   "label": "status line segment",
-  "description": "",
-  "file": "modes/settings.ts"
- },
- {
-  "id": "statusLine.segmentOptions",
-  "label": "",
   "description": "",
   "file": "modes/settings.ts"
  },
@@ -2628,144 +2034,6 @@
   "file": "spotlight/settings.ts"
  },
  {
-  "id": "spotlight.experiment.holdout",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.experiment.scoreFree",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.experiment.tools",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.url",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.model",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.thinking",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "spotlight.timeoutMs",
-  "label": "",
-  "description": "",
-  "file": "spotlight/settings.ts"
- },
- {
-  "id": "memories.enabled",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.maxRolloutsPerStartup",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.maxRolloutAgeDays",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.minRolloutIdleHours",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.threadScanLimit",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.maxRawMemoriesForGlobal",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.stage1Concurrency",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.stage1LeaseSeconds",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.stage1RetryDelaySeconds",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.phase2LeaseSeconds",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.phase2RetryDelaySeconds",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.phase2HeartbeatSeconds",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.rolloutPayloadPercent",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.phase1InputTokenLimit",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.fallbackTokenLimit",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
-  "id": "memories.summaryInjectionTokenLimit",
-  "label": "",
-  "description": "",
-  "file": "memories/settings.ts"
- },
- {
   "id": "workspace.additionalDirectories",
   "label": "Additional Workspace Dirs",
   "description": "Extra workspace directories added to every session as additional roots (multi-root workspace). Managed live via /add-dir and /remove-dir. Paths resolve relative to cwd; absolute paths recommended. The agent is told these roots exist and can read/grep/glob them.",
@@ -2826,18 +2094,6 @@
   "file": "session/context-settings.ts"
  },
  {
-  "id": "compaction.modelThresholds",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.modelThresholdsEnabled",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
   "id": "compaction.handoffSaveToDisk",
   "label": "Save Handoff Docs",
   "description": "Save generated handoff documents to markdown files for the auto-handoff flow",
@@ -2853,36 +2109,6 @@
   "id": "compaction.asyncEnabled",
   "label": "Async Compaction",
   "description": "Speculatively summarize in the background as context nears the compaction threshold, then splice the ready result in when the threshold is crossed",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.reserveTokens",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.keepRecentTokens",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.autoContinue",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.remoteEndpoint",
-  "label": "",
-  "description": "",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "compaction.v2RetainedMessageBudget",
-  "label": "",
-  "description": "",
   "file": "session/context-settings.ts"
  },
  {
@@ -2943,12 +2169,6 @@
   "id": "branchSummary.enabled",
   "label": "Branch Summaries",
   "description": "Prompt to summarize when leaving a branch",
-  "file": "session/context-settings.ts"
- },
- {
-  "id": "branchSummary.reserveTokens",
-  "label": "",
-  "description": "",
   "file": "session/context-settings.ts"
  },
  {
@@ -3042,99 +2262,15 @@
   "file": "session/settings.ts"
  },
  {
-  "id": "extensions",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "disabledExtensions",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
   "id": "skills.registryUrl",
   "label": "Skill Registry",
   "description": "Skillshare registry used by `omp skill` to install, search, and publish skills (https://host[:port])",
   "file": "extensibility/settings.ts"
  },
  {
-  "id": "skills.enabled",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
   "id": "skills.enableSkillCommands",
   "label": "Skill Commands",
   "description": "Register skills as /skill:name commands",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enableCodexUser",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enableClaudeUser",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enableClaudeProject",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enablePiUser",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enablePiProject",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enableAgentsUser",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.enableAgentsProject",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.customDirectories",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.ignoredSkills",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.manualSkills",
-  "label": "",
-  "description": "",
-  "file": "extensibility/settings.ts"
- },
- {
-  "id": "skills.includeSkills",
-  "label": "",
-  "description": "",
   "file": "extensibility/settings.ts"
  },
  {

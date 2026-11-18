@@ -9,8 +9,9 @@
 | --- | --- |
 | 目标上游版本 | **v18.22.2**（2026-11-18） |
 | 翻译基线 | 复用 [feigo313/oh-my-pi-zh](https://github.com/feigo313/oh-my-pi-zh)（MIT，v18.20.2-zh）的 16 个字典，**5,516 条** |
-| 设置项覆盖 | 359 / 543（66.1%） |
-| 缺口 | 184 个设置项，见 [todo/missing-settings.csv](todo/missing-settings.csv) |
+| 设置项覆盖 | **350 / 399（87.7%）**（只算有界面文案的设置项） |
+| 缺口 | **49 个设置项**，见 [todo/missing-settings.csv](todo/missing-settings.csv) |
+| 可自动替换 | 3,079 条“英文→中文”，首次应用覆盖 **932 处源码** |
 | 构建管线 | 规划中：`bun run build` + `CROSS_TARGET=win32-x64` 交叉编译 |
 | 终端适配 | 见 [README 的“已知限制”](#已知限制) |
 
@@ -31,6 +32,23 @@ scripts/validate.mjs          字典校验
 scripts/coverage.mjs          覆盖率统计
 coverage.md                   最新覆盖率报告（自动生成）
 ```
+
+## 构建流程（脚本化）
+
+```bash
+node scripts/build-map.mjs                 # data/en + dict -> dist/en-zh.json（英文->中文）
+node scripts/apply.mjs --upstream /path/to/omp   # 替换上游源码字符串字面量
+cd /path/to/omp/packages/coding-agent
+CROSS_TARGET=win32-x64 \
+BUN_COMPILE_EXECUTABLE_PATH=/path/to/bun.exe \
+  bun run build                              # 产出 dist/omp-win32-x64
+```
+
+说明：
+
+- `apply.mjs` 只替换完整文案（含空格或句末标点、长度 ≥ 4），跳过路径/URL/标识符；
+- 上游用干净的 git checkout，改完可 `git checkout -- .` 回滚；
+- 交叉编译需要三样东西：Bun 本体、`@oh-my-pi/pi-natives-win32-x64` 的 `.node`、Windows 版 Bun 运行时（`BUN_COMPILE_EXECUTABLE_PATH` 可绕开下载）。
 
 ## 参与
 
