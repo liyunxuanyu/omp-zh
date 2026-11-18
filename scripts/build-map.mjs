@@ -9,20 +9,20 @@ const cwd = process.cwd();
 const outArg = process.argv.indexOf("--out");
 const outFile = path.resolve(cwd, outArg > -1 ? process.argv[outArg + 1] : "dist/en-zh.json");
 
-const readDir = (dir) =>
-  fs.existsSync(dir)
-    ? fs
-        .readdirSync(dir)
-        .filter((f) => f.endsWith(".json"))
-        .flatMap((f) => {
-          try {
-            return [JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))];
-          } catch (e) {
-            console.error(`跳过无法解析的 ${f}: ${e.message}`);
-            return [];
-          }
-        })
-    : [];
+const readDir = (dir) => {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
+    const p = path.join(dir, d.name);
+    if (d.isDirectory()) return readDir(p);
+    if (!d.name.endsWith(".json")) return [];
+    try {
+      return [JSON.parse(fs.readFileSync(p, "utf8"))];
+    } catch (e) {
+      console.error(`跳过无法解析的 ${p}: ${e.message}`);
+      return [];
+    }
+  });
+};
 
 const en = Object.assign({}, ...readDir(path.join(cwd, "data/en")));
 const zh = Object.assign({}, ...readDir(path.join(cwd, "dict")));
@@ -37,6 +37,13 @@ for (const [key, enText] of Object.entries(en)) {
   if (!votes.has(enText)) votes.set(enText, new Map());
   const m = votes.get(enText);
   m.set(zhText, (m.get(zhText) ?? 0) + 1);
+}
+
+// 文本键（英文原文 -> 中文）自动补成 en，避免并行批次写共享的 en 文件
+for (const [k, v] of Object.entries(zh)) {
+  if (typeof v === "string" && /[\u4e00-\u9fff]/.test(v) && /[A-Za-z]/.test(k) && /\s/.test(k)) {
+    if (!(k in en)) en[k] = k;
+  }
 }
 
 const map = {};

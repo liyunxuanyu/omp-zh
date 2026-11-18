@@ -13,13 +13,21 @@ const errors = [];
 const warnings = [];
 let total = 0;
 
-const files = fs.readdirSync(dictDir).filter((f) => f.endsWith(".json")).sort();
+const listJson = (dir) =>
+  fs.existsSync(dir)
+    ? fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
+        const p = path.join(dir, d.name);
+        return d.isDirectory() ? listJson(p) : d.name.endsWith(".json") ? [p] : [];
+      })
+    : [];
+const files = listJson(dictDir).sort();
 if (files.length === 0) {
   errors.push("dict/ 下没有 JSON 文件");
 }
 
 for (const file of files) {
-  const full = path.join(dictDir, file);
+  const full = path.isAbsolute(file) ? file : path.join(dictDir, file);
+  const label = path.relative(dictDir, full);
   let data;
   try {
     data = JSON.parse(fs.readFileSync(full, "utf8"));

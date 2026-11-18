@@ -17,6 +17,11 @@ const arg = (n, d) => (argv.indexOf(n) > -1 ? Number(argv[argv.indexOf(n) + 1]) 
 const LIMIT = arg("--limit", 200);
 const BATCH = arg("--batch", 40);
 const MIN_COUNT = arg("--min-count", 1);
+const OFFSET = arg("--offset", 0);
+const OUT = (() => {
+  const i = argv.indexOf("--out");
+  return i > -1 ? argv[i + 1] : "dict/zh-strings-extra.json";
+})();
 
 const BASE = process.env.OMP_TRANSLATE_BASE_URL ?? "https://cn.ai-pixel.online/v1";
 const KEY = process.env.OMP_TRANSLATE_API_KEY;
@@ -26,15 +31,13 @@ if (!KEY) {
   process.exit(2);
 }
 
-const dictFile = path.join(cwd, "dict", "zh-strings-extra.json");
-const enFile = path.join(cwd, "data", "en", "strings-extra.json");
+const dictFile = path.resolve(cwd, OUT);
 const dict = fs.existsSync(dictFile) ? JSON.parse(fs.readFileSync(dictFile, "utf8")) : {};
-const enMap = fs.existsSync(enFile) ? JSON.parse(fs.readFileSync(enFile, "utf8")) : {};
 
 const todo = JSON.parse(fs.readFileSync(path.join(cwd, "todo", "untranslated.json"), "utf8"));
 const queue = todo
   .filter((r) => r.count >= MIN_COUNT && !dict[r.en])
-  .slice(0, LIMIT)
+  .slice(OFFSET, OFFSET + LIMIT)
   .map((r) => r.en);
 
 const GLOSSARY =
@@ -100,11 +103,10 @@ for (let start = 0; start < queue.length; start += BATCH) {
   }
   for (const [en, zh] of got) {
     dict[en] = zh;
-    enMap[en] = en;
     done++;
   }
+  fs.mkdirSync(path.dirname(dictFile), { recursive: true });
   fs.writeFileSync(dictFile, JSON.stringify(dict, null, 1), "utf8");
-  fs.writeFileSync(enFile, JSON.stringify(enMap, null, 1), "utf8");
   console.log(`  批次 ${start / BATCH + 1}/${Math.ceil(queue.length / BATCH)}：+${got.size}（累计 ${done}）`);
 }
 

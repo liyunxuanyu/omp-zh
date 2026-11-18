@@ -11,7 +11,7 @@
 | 翻译基线 | 复用 [feigo313/oh-my-pi-zh](https://github.com/feigo313/oh-my-pi-zh)（MIT，v18.20.2-zh）的 16 个字典，**5,516 条** |
 | 设置项覆盖 | **350 / 399（87.7%）**（只算有界面文案的设置项） |
 | 缺口 | **49 个设置项**，见 [todo/missing-settings.csv](todo/missing-settings.csv) |
-| 可自动替换 | 3,168 条“英文→中文”，应用后覆盖 **2,374 处源码 / 145 个文件** |
+| 可自动替换 | 4,655 条“英文→中文”，应用后覆盖 **4,860 处源码 / 454 个文件** |
 | 构建 | ✅ GitHub Actions 交叉编译通过，产出 Windows exe |
 | 运行时验证 | ✅ Linux 构建 `omp --help` 显示中文（1,661 个汉字） |
 | 构建管线 | 规划中：`bun run build` + `CROSS_TARGET=win32-x64` 交叉编译 |
