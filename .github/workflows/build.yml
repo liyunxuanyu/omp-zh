@@ -67,8 +67,13 @@ jobs:
           echo "=== 前 25 行 ==="
           head -25 /tmp/help.txt
           echo "=== 中文字符统计 ==="
-          python3 -c "import re,sys;t=open('/tmp/help.txt',encoding='utf-8',errors='ignore').read();print('CJK:',len(re.findall(r'[\u4e00-\u9fff]',t)))"
-          grep -qE '[一-龥]' /tmp/help.txt && echo "SMOKE_ZH=OK" || (echo "SMOKE_ZH=FAIL"; exit 1)
+          python3 - <<'PY2'
+          import re, sys
+          t = open('/tmp/help.txt', encoding='utf-8', errors='ignore').read()
+          n = len(re.findall(r'[\u4e00-\u9fff]', t))
+          print(f"CJK: {n}")
+          sys.exit(0 if n > 200 else 1)
+          PY2
 
       - name: Cross-compile Windows x64
         working-directory: upstream/packages/coding-agent
