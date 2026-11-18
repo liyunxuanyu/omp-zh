@@ -32,13 +32,17 @@ jobs:
         working-directory: upstream
         run: bun install --frozen-lockfile
 
-      - name: Add Windows native addon
+      - name: Add native addons (win32 + linux)
         run: |
           mkdir -p /tmp/nat && cd /tmp/nat
-          npm pack "@oh-my-pi/pi-natives-win32-x64@18.22.2"
-          tar xzf *.tgz
-          mkdir -p "$GITHUB_WORKSPACE/upstream/packages/natives/native"
-          cp package/pi_natives.win32-x64-*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
+          for pkg in pi-natives-win32-x64 pi-natives-linux-x64; do
+            npm pack "@oh-my-pi/${pkg}@18.22.2"
+            tar xzf *.tgz --one-top-level="$pkg" || true
+            mkdir -p "$GITHUB_WORKSPACE/upstream/packages/natives/native"
+            cp "$pkg"/package/pi_natives.*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/" 2>/dev/null || \
+              cp package/pi_natives.*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
+            rm -rf package
+          done
           ls -la "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
 
       - name: Build translation map and patch upstream
