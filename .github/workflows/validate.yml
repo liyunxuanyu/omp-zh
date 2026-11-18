@@ -1,0 +1,21 @@
+name: validate-dict
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate dictionaries
+        run: node scripts/validate.mjs
+      - name: Coverage
+        run: node scripts/coverage.mjs
+      - name: Show coverage summary
+        run: sed -n '1,20p' coverage.md
