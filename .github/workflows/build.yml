@@ -51,6 +51,18 @@ jobs:
           grep -n "检查更新" upstream/packages/coding-agent/src/modes/settings.ts | head -3 || true
           grep -c "提供商" upstream/packages/coding-agent/src/session/settings.ts || true
 
+      - name: Smoke test on Linux build
+        working-directory: upstream/packages/coding-agent
+        run: |
+          bun run build
+          ./dist/omp --version
+          ./dist/omp --help > /tmp/help.txt 2>&1 || true
+          echo "=== 前 25 行 ==="
+          head -25 /tmp/help.txt
+          echo "=== 中文字符统计 ==="
+          python3 -c "import re,sys;t=open('/tmp/help.txt',encoding='utf-8',errors='ignore').read();print('CJK:',len(re.findall(r'[\u4e00-\u9fff]',t)))"
+          grep -qE '[一-龥]' /tmp/help.txt && echo "SMOKE_ZH=OK" || (echo "SMOKE_ZH=FAIL"; exit 1)
+
       - name: Cross-compile Windows x64
         working-directory: upstream/packages/coding-agent
         run: CROSS_TARGET=win32-x64 bun run build
