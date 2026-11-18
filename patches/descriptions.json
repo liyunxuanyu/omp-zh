@@ -1,0 +1,68 @@
+[
+ {
+  "id": "tui.codexResetFireworks",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Celebrate unscheduled Codex weekly usage resets and newly banked saved resets with a top-third fireworks overlay that remains until ${formatKeyHint(\"escape\")}`",
+  "new": "`庆祝 Codex 每周用量非计划重置以及新存入的已保存重置，使用位于顶部三分之一的烟花覆盖层，该覆盖层会一直保留到 ${formatKeyHint(\"escape\")}`"
+ },
+ {
+  "id": "tui.mouse",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Capture mouse clicks in the main session so live subagent cards and HUD rows focus on click, with a hover highlight on the target, and clicks on extension-owned links reach their extension (the link-hint key picks them without the mouse). Native text selection becomes ${shift}+drag while on, and mouse capture stops wheel scrolling — the terminal reports wheel ticks to omp instead — so scroll with the terminal's keyboard scrollback keys, or turn this off`",
+  "new": "`在主会话中捕获鼠标点击，使实时子代理卡片和 HUD 行在点击时聚焦，目标在悬停时高亮，并且点击属于扩展的链接会送达其扩展（链接提示键可在不用鼠标的情况下选取它们）。开启时，原生文本选择变为 ${shift}+拖拽，而鼠标捕获会停止滚轮滚动——终端改为将滚轮刻度报告给 omp——因此请使用终端的键盘回滚键滚动，或关闭此功能`"
+ },
+ {
+  "id": "tui.vimMode",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Modal prompt editing. ${formatKeyHint(\"escape\")} leaves Insert mode; Normal mode has hjkl, 0, $, ^, w, b, e, gg, G, counts, x/D/C, dd/yy, p and u; operators take motions or text objects (diw, ca(, dap); v/V start a Visual selection that y copies and d deletes`",
+  "new": "`模态提示编辑。${formatKeyHint(\"escape\")} 退出插入模式；普通模式支持 hjkl、0、$、^、w、b、e、gg、G、计数、x/D/C、dd/yy、p 和 u；操作符可接动作或文本对象（diw、ca(、dap）；v/V 启动可视选择，y 复制，d 删除`"
+ },
+ {
+  "id": "composer.recallClearedDrafts",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Keep drafts cleared with ${formatKeyHint(\"ctrl+c\")} in local ${formatKeyHints([\"up\", \"down\"])} history until exit; disabling affects future clears`",
+  "new": "`在退出前，使用 ${formatKeyHint(\"ctrl+c\")} 保持清除本地 ${formatKeyHints([\"up\", \"down\"])} 历史中的草稿；禁用只影响之后的清除操作`"
+ },
+ {
+  "id": "doubleEscapeAction",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`What pressing ${formatKeyHint(\"escape\")} twice with an empty editor does: open the transcript rewind selector, open the session tree, or nothing`",
+  "new": "`在空编辑器中按两次 ${formatKeyHint(\"escape\")} 会做什么：打开对话记录回退选择器、打开会话树，还是什么都不做`"
+ },
+ {
+  "id": "spelling.autocomplete",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Show predicted word completions as inline hints: ${formatKeyHint(\"tab\")} accepts with a space, ${formatKeyHint(\"right\")} without`",
+  "new": "`以内联提示显示预测的单词补全：${formatKeyHint(\"tab\")} 使用空格接受，${formatKeyHint(\"right\")} 不使用空格接受`"
+ },
+ {
+  "id": "composer.predictions",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`After a completed turn, ask the active model to predict your next message and show it as ghost text in the empty composer; ${formatKeyHint(\"tab\")} or ${formatKeyHint(\"right\")} inserts it without sending. Extra usage: every completed turn sends one more billed request over the whole conversation (counted in /stats)`",
+  "new": "`完成一个轮次后，让当前活动模型预测你的下一条消息，并将其作为幽灵文本显示在空输入框中；${formatKeyHint(\"tab\")} 或 ${formatKeyHint(\"right\")} 会将其插入但不发送。额外用量：每完成一个轮次，都会在整个对话中额外发送一次计费请求（计入 /stats）`"
+ },
+ {
+  "id": "composer.predictionAlternatives",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Ask for up to four distinct predictions instead of one, most likely first. The ghost text shows the first one your draft matches; after inserting one, press ${formatKeyHint(\"tab\")} again to pick another. The same single request returns a few more output tokens`",
+  "new": "`请求最多四个不同的预测，而不是一个，最可能的排在最前。幽灵文本会显示与你的草稿匹配的第一个预测；插入一个后，再次按 ${formatKeyHint(\"tab\")} 可选择另一个。同一次请求会额外返回少量输出 token`"
+ },
+ {
+  "id": "magicKeywords.enabled",
+  "file": "packages/coding-agent/src/modes/settings.ts",
+  "old": "`Enable hidden notices for standalone ${MAGIC_KEYWORDS.map(keyword => keyword.word).join(\", \")} keywords`",
+  "new": "`启用独立 ${MAGIC_KEYWORDS.map(keyword => keyword.word).join(\", \")} 关键词的隐藏通知`"
+ },
+ {
+  "id": "providers.webSearchTimeoutSeconds",
+  "file": "packages/coding-agent/src/session/settings.ts",
+  "old": "`Hard timeout for each provider's search transport before web_search advances to the next fallback, in seconds (maximum ${MAX_WEB_SEARCH_TIMEOUT_SECONDS})`",
+  "new": "`每个提供商的搜索传输在 web_search 进入下一个回退方案之前的硬超时时间，单位为秒（最大 ${MAX_WEB_SEARCH_TIMEOUT_SECONDS}）`"
+ },
+ {
+  "id": "retry.waitForUsageReset",
+  "file": "packages/coding-agent/src/session/settings.ts",
+  "old": "`When a provider reports usage-limit exhaustion with a reset time (5-hour or weekly quota windows on any provider), sleep until the reset instead of failing fast past retry.maxDelayMs. Waits are abortable (${formatKeyHint(\"escape\")}) but also hold subagents, so leave off for unattended runs.`",
+  "new": "`当提供商报告用量耗尽并给出重置时间（任何提供商的 5 小时或每周配额窗口）时，等到重置再继续，而不是超过 retry.maxDelayMs 后快速失败。等待可以中止（${formatKeyHint(\"escape\")}），但也会占用子代理，因此无人值守运行时建议关闭。`"
+ }
+]

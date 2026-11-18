@@ -90,6 +90,22 @@ function scanStrings(src) {
   return out;
 }
 
+// 二次补丁：多行/带插值的模板串（无法按整串字面量替换）
+const patchesFile = path.resolve(cwd, "patches/descriptions.json");
+let patchCount = 0;
+if (fs.existsSync(patchesFile) && !dryRun) {
+  const patches = JSON.parse(fs.readFileSync(patchesFile, "utf8"));
+  for (const p of patches) {
+    const f = path.join(upstream, p.file);
+    if (!fs.existsSync(f)) continue;
+    const src = fs.readFileSync(f, "utf8");
+    if (!src.includes(p.old)) continue;
+    fs.writeFileSync(f, src.replace(p.old, p.new), "utf8");
+    patchCount++;
+  }
+}
+
+
 const report = { files: 0, replaced: 0, byFile: {} };
 const walk = (dir) => {
   if (!fs.existsSync(dir)) return [];
@@ -134,6 +150,7 @@ fs.writeFileSync(reportFile, JSON.stringify(report, null, 1), "utf8");
 const top = Object.entries(report.byFile)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 12);
+console.log(`模板补丁 ${patchCount} 处`);
 console.log(`替换 ${report.replaced} 处，涉及 ${report.files} 个文件${dryRun ? "（dry-run，未写盘）" : ""}`);
 for (const [f, n] of top) console.log(`  ${String(n).padStart(4)}  ${f}`);
 console.log(`报告：${reportFile}`);

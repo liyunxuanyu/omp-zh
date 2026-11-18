@@ -1,6 +1,6 @@
 {
  "files": 581,
- "replaced": 7239,
+ "replaced": 7244,
  "byFile": {
   "packages/coding-agent/src/advisor/config.ts": 1,
   "packages/coding-agent/src/advisor/settings.ts": 34,
@@ -264,7 +264,7 @@
   "packages/coding-agent/src/session/session-listing.ts": 1,
   "packages/coding-agent/src/session/session-maintenance.ts": 2,
   "packages/coding-agent/src/session/session-transfer.ts": 1,
-  "packages/coding-agent/src/session/settings.ts": 266,
+  "packages/coding-agent/src/session/settings.ts": 271,
   "packages/coding-agent/src/session/shake-types.ts": 1,
   "packages/coding-agent/src/session/sql-session-storage.ts": 1,
   "packages/coding-agent/src/session/turn-recovery.ts": 3,
