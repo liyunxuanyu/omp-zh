@@ -34,16 +34,19 @@ jobs:
 
       - name: Add native addons (win32 + linux)
         run: |
-          mkdir -p /tmp/nat && cd /tmp/nat
-          for pkg in pi-natives-win32-x64 pi-natives-linux-x64; do
-            npm pack "@oh-my-pi/${pkg}@18.22.2"
-            tar xzf *.tgz --one-top-level="$pkg" || true
-            mkdir -p "$GITHUB_WORKSPACE/upstream/packages/natives/native"
-            cp "$pkg"/package/pi_natives.*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/" 2>/dev/null || \
-              cp package/pi_natives.*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
-            rm -rf package
+          set -euo pipefail
+          DEST="$GITHUB_WORKSPACE/upstream/packages/natives/native"
+          mkdir -p "$DEST" /tmp/nat
+          cd /tmp/nat
+          rm -f ./*.tgz; rm -rf ./ext-*
+          for target in win32-x64 linux-x64; do
+            npm pack "@oh-my-pi/pi-natives-${target}@18.22.2" >/dev/null
+            TGZ="$(ls -t *pi-natives-${target}-*.tgz | head -1)"
+            mkdir -p "ext-${target}"
+            tar xzf "$TGZ" -C "ext-${target}"
+            cp "ext-${target}"/package/*.node "$DEST"/
           done
-          ls -la "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
+          ls -la "$DEST"
 
       - name: Build translation map and patch upstream
         run: |
