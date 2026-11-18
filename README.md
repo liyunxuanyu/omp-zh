@@ -56,7 +56,7 @@ BUN_COMPILE_EXECUTABLE_PATH=/path/to/bun.exe \
 
 | 资产 | 大小 | SHA256 |
 | --- | --- | --- |
-| [omp.exe](https://github.com/liyunxuanyu/omp-zh/releases/download/v18.22.2-zh.4/omp.exe) | 265,818,624 B | `db40722807bc72be3eb850f15cffbfcf9f903e779ce9d467bcd70b9b3c65fd48` |
+| [omp.exe](https://github.com/liyunxuanyu/omp-zh/releases/download/v18.22.2-zh.6/omp.exe) | 265,821,696 B | `ab2f6f4407bc72be3eb850f15cffbfcf9f903e779ce9d467bcd70b9b3c65fd48` |
 
 基于上游 **v18.22.2**，Windows x64 单文件。用法：替换 `D:\tools\omp\omp.exe`，或放进 PATH 后直接跑 `omp`。
 
