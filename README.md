@@ -11,7 +11,9 @@
 | 翻译基线 | 复用 [feigo313/oh-my-pi-zh](https://github.com/feigo313/oh-my-pi-zh)（MIT，v18.20.2-zh）的 16 个字典，**5,516 条** |
 | 设置项覆盖 | **350 / 399（87.7%）**（只算有界面文案的设置项） |
 | 缺口 | **49 个设置项**，见 [todo/missing-settings.csv](todo/missing-settings.csv) |
-| 可自动替换 | 3,079 条“英文→中文”，首次应用覆盖 **932 处源码** |
+| 可自动替换 | 3,168 条“英文→中文”，应用后覆盖 **2,374 处源码 / 145 个文件** |
+| 构建 | ✅ GitHub Actions 交叉编译通过，产出 Windows exe |
+| 运行时验证 | ✅ Linux 构建 `omp --help` 显示中文（1,661 个汉字） |
 | 构建管线 | 规划中：`bun run build` + `CROSS_TARGET=win32-x64` 交叉编译 |
 | 终端适配 | 见 [README 的“已知限制”](#已知限制) |
 
@@ -49,6 +51,16 @@ BUN_COMPILE_EXECUTABLE_PATH=/path/to/bun.exe \
 - `apply.mjs` 只替换完整文案（含空格或句末标点、长度 ≥ 4），跳过路径/URL/标识符；
 - 上游用干净的 git checkout，改完可 `git checkout -- .` 回滚；
 - 交叉编译需要三样东西：Bun 本体、`@oh-my-pi/pi-natives-win32-x64` 的 `.node`、Windows 版 Bun 运行时（`BUN_COMPILE_EXECUTABLE_PATH` 可绕开下载）。
+
+## 下载
+
+| 资产 | 大小 | SHA256 |
+| --- | --- | --- |
+| [omp.exe](https://github.com/liyunxuanyu/omp-zh/releases/download/v18.22.2-zh/omp.exe) | 265,717,248 B | `3f27b613e983653b45ea1468b203182b7a9b9b871d32e7c389e2eb20191099dc` |
+
+基于上游 **v18.22.2**，Windows x64 单文件。用法：替换 `D:\tools\omp\omp.exe`，或放进 PATH 后直接跑 `omp`。
+
+> 这是第三方构建，没有官方签名；哈希见上，自行校验。
 
 ## 参与
 
