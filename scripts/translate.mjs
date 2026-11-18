@@ -34,7 +34,11 @@ if (!KEY) {
 const dictFile = path.resolve(cwd, OUT);
 const dict = fs.existsSync(dictFile) ? JSON.parse(fs.readFileSync(dictFile, "utf8")) : {};
 
-const todo = JSON.parse(fs.readFileSync(path.join(cwd, "todo", "untranslated.json"), "utf8"));
+const TODO_FILE = (() => {
+  const i = argv.indexOf("--todo");
+  return i > -1 ? argv[i + 1] : "todo/untranslated.json";
+})();
+const todo = JSON.parse(fs.readFileSync(path.resolve(cwd, TODO_FILE), "utf8"));
 const queue = todo
   .filter((r) => r.count >= MIN_COUNT && !dict[r.en])
   .slice(OFFSET, OFFSET + LIMIT)

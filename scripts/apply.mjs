@@ -108,9 +108,12 @@ for (const root of roots) {
     let count = 0;
     for (const s of strings) {
       // 保守策略：只替换单行、单/双引号字符串；模板串与含花括号/换行的内容一律跳过
-      if (s.hasSubstitution || s.quote === "`") continue;
+      if (s.hasSubstitution) continue;
+      if (s.quote === "`" && s.raw.includes("\n")) continue; // 多行模板串不动
       const text = s.raw.replace(/\\(["'`\\])/g, "$1");
-      if (text.includes("\n") || text.includes("{") || text.includes("}")) continue;
+      if (text.includes("\n")) continue;
+      // 花括号允许，但不能是未闭合的占位符（避免破坏语法）
+      if ((text.match(/\{/g) || []).length !== (text.match(/\}/g) || []).length) continue;
       const zh = translatable(text);
       if (!zh) continue;
       out += src.slice(last, s.start) + JSON.stringify(zh);

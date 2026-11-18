@@ -39,19 +39,23 @@ for (const [key, enText] of Object.entries(en)) {
   m.set(zhText, (m.get(zhText) ?? 0) + 1);
 }
 
-// 文本键（英文原文 -> 中文）自动补成 en，避免并行批次写共享的 en 文件
-for (const [k, v] of Object.entries(zh)) {
-  if (typeof v === "string" && /[\u4e00-\u9fff]/.test(v) && /[A-Za-z]/.test(k) && /\s/.test(k)) {
-    if (!(k in en)) en[k] = k;
-  }
-}
-
 const map = {};
 let conflicts = 0;
 for (const [enText, m] of votes) {
   const sorted = [...m.entries()].sort((a, b) => b[1] - a[1]);
   map[enText] = sorted[0][0];
   if (sorted.length > 1) conflicts++;
+}
+
+// 文本键（英文原文 -> 中文）直接进映射：分片批次不再依赖共享的 en 文件
+let textKeys = 0;
+for (const [k, v] of Object.entries(zh)) {
+  if (typeof v !== "string" || !v.trim()) continue;
+  if (!/[\u4e00-\u9fff]/.test(v)) continue;
+  if (!/[A-Za-z]/.test(k) || !/\s/.test(k)) continue;
+  if (map[k]) continue;
+  map[k] = v;
+  textKeys++;
 }
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
