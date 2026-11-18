@@ -57,6 +57,8 @@ jobs:
           grep -c "检查更新" upstream/packages/coding-agent/src/modes/settings.ts || true
           grep -n "检查更新" upstream/packages/coding-agent/src/modes/settings.ts | head -3 || true
           grep -c "提供商" upstream/packages/coding-agent/src/session/settings.ts || true
+          # 翻译改动会影响 export-viewer 元数据哈希，重新生成以免 check 模式报 stale
+          (cd upstream && bun --cwd=packages/collab-web run gen:export-viewer --write) || true
 
       - name: Smoke test on Linux build
         working-directory: upstream/packages/coding-agent
