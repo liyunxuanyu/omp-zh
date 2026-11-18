@@ -53,8 +53,14 @@ jobs:
 
       - name: Collect artifact
         run: |
+          echo "=== dist 内容 ==="
+          ls -la upstream/packages/coding-agent/dist || true
+          echo "=== 全仓搜索 omp-* 产物 ==="
+          find upstream -maxdepth 4 -type f \( -name 'omp-*' -o -name 'omp' \) -printf '%p %s\n' | head -20
           mkdir -p out
-          cp upstream/packages/coding-agent/dist/omp-win32-x64 out/omp.exe
+          BIN="$(find upstream -maxdepth 4 -type f -name 'omp-*' -size +20M | head -1)"
+          test -n "$BIN" || { echo "未找到构建产物"; exit 1; }
+          cp "$BIN" out/omp.exe
           sha256sum out/omp.exe | tee out/omp.exe.sha256
           ls -lh out/
 
