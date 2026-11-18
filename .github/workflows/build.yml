@@ -1,0 +1,79 @@
+name: build-windows-zh
+
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_tag:
+        description: "上游 tag（默认 v18.22.2）"
+        required: false
+        default: "v18.22.2"
+  push:
+    tags: ["v*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.4"
+
+      - name: Clone upstream
+        run: |
+          TAG="${{ github.event.inputs.upstream_tag || 'v18.22.2' }}"
+          echo "UPSTREAM_TAG=$TAG" >> $GITHUB_ENV
+          git clone --depth 1 --branch "$TAG" https://github.com/can1357/oh-my-pi.git upstream
+          echo "upstream commit: $(git -C upstream rev-parse --short HEAD)"
+
+      - name: Install dependencies
+        working-directory: upstream
+        run: bun install --frozen-lockfile
+
+      - name: Add Windows native addon
+        run: |
+          mkdir -p /tmp/nat && cd /tmp/nat
+          npm pack "@oh-my-pi/pi-natives-win32-x64@18.22.2"
+          tar xzf *.tgz
+          mkdir -p "$GITHUB_WORKSPACE/upstream/packages/natives/native"
+          cp package/pi_natives.win32-x64-*.node "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
+          ls -la "$GITHUB_WORKSPACE/upstream/packages/natives/native/"
+
+      - name: Build translation map and patch upstream
+        run: |
+          node scripts/build-map.mjs
+          node scripts/apply.mjs --upstream upstream
+          node scripts/coverage.mjs || true
+
+      - name: Cross-compile Windows x64
+        working-directory: upstream/packages/coding-agent
+        run: CROSS_TARGET=win32-x64 bun run build
+
+      - name: Collect artifact
+        run: |
+          mkdir -p out
+          cp upstream/packages/coding-agent/dist/omp-win32-x64 out/omp.exe
+          sha256sum out/omp.exe | tee out/omp.exe.sha256
+          ls -lh out/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omp-windows-x64-zh-${{ env.UPSTREAM_TAG }}
+          path: out/
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: out/**/*
+          generate_release_notes: true
