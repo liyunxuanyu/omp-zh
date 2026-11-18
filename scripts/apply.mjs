@@ -107,8 +107,10 @@ for (const root of roots) {
     let last = 0;
     let count = 0;
     for (const s of strings) {
-      if (s.hasSubstitution) continue;
+      // 保守策略：只替换单行、单/双引号字符串；模板串与含花括号/换行的内容一律跳过
+      if (s.hasSubstitution || s.quote === "`") continue;
       const text = s.raw.replace(/\\(["'`\\])/g, "$1");
+      if (text.includes("\n") || text.includes("{") || text.includes("}")) continue;
       const zh = translatable(text);
       if (!zh) continue;
       out += src.slice(last, s.start) + JSON.stringify(zh);
