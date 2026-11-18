@@ -1,0 +1,217 @@
+en,count,file
+"json.decoder.JSONDecodeError: Expecting ',' delimiter: line 12 column 3 (char 318)",2,"packages/coding-agent/src/cli/gallery-fixtures/shell.ts"
+"Traceback (most recent call last):",2,"packages/coding-agent/src/cli/gallery-fixtures/shell.ts"
+"@oh-my-pi/coding-agent v0.42.0",2,"packages/coding-agent/src/cli/gallery-fixtures/shell.ts"
+"OSC 9 (iTerm2/WezTerm)",2,"packages/tui/src/apps/debug/protocol-probe.ts"
+"Claude Sonnet 4.5",2,"packages/coding-agent/src/cli/gallery-fixtures/preview-session.ts"
+" daybreak",2,"packages/coding-agent/src/modes/controllers/command-controller.ts"
+"  meta:",2,"packages/tui/src/tools/ast-grep.ts"
+"data: ",2,"packages/tui/src/apps/debug/raw-sse.ts"
+" active tasks are
+ *    shown and the summary counts the hidden *active* todos, never replacing
+ *    them with unrelated pending rows.
+ *
+ * The summary occupies a row, so a summary that would hide exactly one task is
+ * replaced by that task: the selection spends at most ",1,"packages/tui/src/tools/todo.ts"
+" are filled with the pending tasks that follow
+ *    the first active one, in todo order (falling back to leading pending tasks
+ *    when no active task exists), so a freshly-promoted task leads the preview.
+ * 3. When active tasks alone exceed ",1,"packages/tui/src/tools/todo.ts"
+"Geist, -apple-system, system-ui, 'SF Pro Text', Inter, 'Segoe UI', Roboto, 'Noto Sans', 'DejaVu Sans', Arial, 'Helvetica Neue', sans-serif",1,"packages/tui/src/charts/chart-svg.ts"
+" is
+	 * suppressed because the same error is currently shown in the pinned banner
+	 * above the editor (see ",1,"packages/tui/src/chat/assistant-message.ts"
+") by its last segment; among
+ * such single-token names, a prefix or suffix all share at a separator
+ * (",1,"packages/tui/src/charts/chart-plan.ts"
+"). Avoids
+	 * rendering the identical error twice (inline + banner) at the error moment.
+	 * Restored to ",1,"packages/tui/src/chat/assistant-message.ts"
+" characters inside fenced
+ * code blocks are never treated as headings. Concatenating every section's
+ * ",1,"packages/tui/src/overlays/plan-toc.ts"
+" snapshot
+ * tags (4 hex digits, e.g. #6C5E), which would otherwise sprout spurious swatches.
+ * In ",1,"packages/tui/src/components/markdown.ts"
+" (raw, e.g. a dim tree gutter) is prepended to the marker line so
+ * nested previews stay aligned. ",1,"packages/tui/src/render/render-utils.ts"
+" inline token before markdown's escape/emphasis/link rules run, so
+// backslash commands (",1,"packages/tui/src/components/markdown.ts"
+" in ../utils): re-wrapping
+// splits/normalizes the sized span (recomputing the explicit ",1,"packages/tui/src/components/markdown.ts"
+" clause covers that escape-completion
+// hazard), or a full/partial hex swatch run (a ",1,"packages/tui/src/components/markdown.ts"
+" emphasized): the delta lexed
+				// alone has nothing to pair with. An image marker (",1,"packages/tui/src/components/markdown.ts"
+" comparison as a takeaway: the compared condition's
+ * value against the baseline's (",1,"packages/tui/src/charts/chart-plan.ts"
+" for fuzzy matching (the inserted value may be
+ * percent-encoded, e.g. an ssh host ",1,"packages/tui/src/prompt/internal-url-autocomplete.ts"
+" can also close a bare math environment the paragraph opened
+// lines above (",1,"packages/tui/src/components/markdown.ts"
+"gh: Could not resolve to a Repository with the name 'oh-my-pi/pi'. (HTTP 404)",1,"packages/coding-agent/src/cli/gallery-fixtures/misc.ts"
+"
+ * per token as it goes and stores each token's final content rows into
+ * ",1,"packages/tui/src/components/markdown.ts"
+"thread starts still wait on the console: unexpected KernelBase loader entry",1,"packages/tui/src/terminal.ts"
+"omp play /tmp/omp-recordings/2026-09-22T10-00-00-1a2b3c4d.ompcast -s 2 -i 1",1,"packages/coding-agent/src/commands/play.ts"
+"omp render ~/.omp/agent/sessions/--work-pi--/big.jsonl -q -t --repaint 5",1,"packages/coding-agent/src/commands/render.ts"
+"omp clip /tmp/omp-recordings/2026-09-22T10-00-00-1a2b3c4d.ompcast",1,"packages/coding-agent/src/commands/clip.ts"
+"omp skill token create ci --package @alice/pdf-tools --expires 90",1,"packages/coding-agent/src/commands/skill.ts"
+" token. Both kinds are offered unless the user
+ * named a type (",1,"packages/tui/src/prompt/github-ref-autocomplete.ts"
+"omp anonymize ~/.omp/agent/sessions/--work-pi--/session.jsonl",1,"packages/coding-agent/src/commands/anonymize.ts"
+")
+// survive intact instead of being mangled or split. The ",1,"packages/tui/src/components/markdown.ts"
+"omp cleanse --agents 12 --model anthropic/claude-opus-4-6",1,"packages/coding-agent/src/commands/cleanse.ts"
+"id, model, version, tool, report, pushed, push_error",1,"packages/coding-agent/src/cli/grievances-cli.ts"
+" on the first line, or on the second
+	// after an ",1,"packages/tui/src/components/markdown.ts"
+"omp worktree add -b feature ../feature origin/main",1,"packages/coding-agent/src/commands/worktree.ts"
+"), the
+ * qualifiers searched before the label (",1,"packages/tui/src/charts/chart-plan.ts"
+" form uses
+// pandoc's anti-currency heuristic (",1,"packages/tui/src/components/markdown.ts"
+"omp skill tag @alice/pdf-tools@2.0.0-beta.1 next",1,"packages/coding-agent/src/commands/skill.ts"
+"omp skill publish ./skills/pdf-tools --dry-run",1,"packages/coding-agent/src/commands/skill.ts"
+"omp skill version minor && omp skill publish",1,"packages/coding-agent/src/commands/skill.ts"
+"omp stream --server https://live.example.com",1,"packages/coding-agent/src/commands/stream.ts"
+"),
+		// end it the way the first row did (",1,"packages/tui/src/components/markdown.ts"
+" can match, so this
+// gives the tokens a ",1,"packages/tui/src/components/markdown.ts"
+"omp skill install -g @alice/pdf-tools@^1.2",1,"packages/coding-agent/src/commands/skill.ts"
+"omp worktree add --detach ../review HEAD~2",1,"packages/coding-agent/src/commands/worktree.ts"
+"git status --short && git log --oneline -5",1,"packages/coding-agent/src/cli/gallery-fixtures/shell.ts"
+"version https://git-lfs.github.com/spec/v1",1,"packages/coding-agent/src/cli/git-tui/state.ts"
+" apart, for labels: a path-like name
+ * (",1,"packages/tui/src/charts/chart-plan.ts"
+"bunx biome check packages/server/src/auth",1,"packages/coding-agent/src/cli/gallery-fixtures/agentic.ts"
+"is:open review-requested:@me sort:updated",1,"packages/coding-agent/src/cli/gallery-fixtures/misc.ts"
+" column; the
+ * compared ones are the ",1,"packages/tui/src/charts/chart-plan.ts"
+"omp anonymize 01a0285c -o ./bug-report",1,"packages/coding-agent/src/commands/anonymize.ts"
+")
+// plus Unicode letters/numbers — ",1,"packages/tui/src/components/markdown.ts"
+" and the
+	// summed offsets address ",1,"packages/tui/src/components/markdown.ts"
+"), not as a
+	// column of figures (",1,"packages/tui/src/charts/chart-plan.ts"
+", or -1 when a newline or trailing ",1,"packages/tui/src/components/markdown.ts"
+") OR a complete
+// numeric entity (",1,"packages/tui/src/components/markdown.ts"
+"omp read path/to/db.sqlite:users:42",1,"packages/coding-agent/src/commands/read.ts"
+"omp skill install @alice/pdf-tools",1,"packages/coding-agent/src/commands/skill.ts"
+"git status --short && git log --on",1,"packages/coding-agent/src/cli/gallery-fixtures/shell.ts"
+"migrateJsonToYml: migration failed",1,"packages/coding-agent/src/config/config-file.ts"
+"). Over unordered categories
+ * (",1,"packages/tui/src/charts/chart-plan.ts"
+"TSP: unsupported protocol version",1,"packages/tui/src/terminal.ts"
+"TSP: recording failed; disabling",1,"packages/tui/src/native/backend.ts"
+"Glyph Protocol: unparsable reply",1,"packages/tui/src/terminal.ts"
+"Failed: Missing is not running.",1,"packages/coding-agent/src/cli/gallery-fixtures/coordination.ts"
+"experiment sessions, all shaped",1,"packages/stats/src/client/spotlight/Hero.tsx"
+",
+				text: transition
+					? ",1,"packages/tui/src/charts/chart-plan.ts"
+".
+		caption: skipped.length ? ",1,"packages/tui/src/charts/chart-plan.ts"
+" (rows of positive
+ * values, ",1,"packages/tui/src/charts/chart-plan.ts"
+" is a
+// delimiter; intraword ",1,"packages/tui/src/components/markdown.ts"
+" itself) is routed
+ * through ",1,"packages/tui/src/components/markdown.ts"
+"!op read op://dev/github/token",1,"packages/tui/src/overlays/mcp-add-wizard.ts"
+"
+ * (ctrl+o) uncaps it.
+ *
+ * ",1,"packages/tui/src/render/render-utils.ts"
+"pack, unpack, moved, or lease",1,"packages/coding-agent/src/commands/session.ts"
+"TSP: hello subscriber failed",1,"packages/tui/src/terminal.ts"
+"omp read https://example.com",1,"packages/coding-agent/src/commands/read.ts"
+")
+		// A backslash escape (",1,"packages/tui/src/charts/table-data.ts"
+"Sonnet/Fable 5+ · Haiku 5.5",1,"packages/coding-agent/src/commands/toks.ts"
+"omp worktree add ../feature",1,"packages/coding-agent/src/commands/worktree.ts"
+":session:_omp_call sessions",1,"packages/coding-agent/src/cli/completion-gen.ts"
+"metered + premium + advisor",1,"packages/coding-agent/src/cli/gallery-fixtures/segments.ts"
+" override would, and the ",1,"packages/tui/src/components/markdown.ts"
+" O P E N A I   R E S E T ",1,"packages/tui/src/overlays/codex-reset-fireworks.ts"
+"omp git -C ~/projects/app",1,"packages/coding-agent/src/commands/git.ts"
+" would
+// wrongly treat ",1,"packages/tui/src/components/markdown.ts"
+" intraword
+// gate. For ",1,"packages/tui/src/components/markdown.ts"
+" is a verbatim slice of ",1,"packages/tui/src/components/markdown.ts"
+"), which is not a
+		// ",1,"packages/tui/src/components/markdown.ts"
+"input, select, textarea",1,"packages/tui/src/html-form/parse.ts"
+" S A V E D   R E S E T ",1,"packages/tui/src/overlays/codex-reset-fireworks.ts"
+" distinct
+ * lines, or ",1,"packages/coding-agent/src/modes/controllers/composer-prediction-controller.ts"
+":model:_omp_call models",1,"packages/coding-agent/src/cli/completion-gen.ts"
+"ui-monospace, monospace",1,"packages/stats/src/client/traces/trace-colors.ts"
+"
+ * for a transition, ",1,"packages/tui/src/charts/chart-plan.ts"
+"); right arrow passes ",1,"packages/tui/src/components/editor.ts"
+"; it is used
+ * when ",1,"packages/tui/src/components/markdown.ts"
+";
+		// roots such as ",1,"packages/tui/src/render/render-utils.ts"
+"    at run (eval:3:7)",1,"packages/coding-agent/src/cli/gallery-fixtures/web.ts"
+"lift · random cut 1.0",1,"packages/stats/src/client/spotlight/Ranking.tsx"
+"system-ui, sans-serif",1,"packages/stats/src/client/traces/trace-colors.ts"
+" closed the row.
+ * ",1,"packages/tui/src/components/markdown.ts"
+"omp read issue://123",1,"packages/coding-agent/src/commands/read.ts"
+"GPT-4o · o1 · GPT-5+",1,"packages/coding-agent/src/commands/toks.ts"
+": the fewest of
+ * ",1,"packages/tui/src/charts/chart-plan.ts"
+"PRAGMA user_version",1,"packages/tui/src/prompt/composer-cache.ts"
+"Claude 3 … Opus 4.6",1,"packages/coding-agent/src/commands/toks.ts"
+"'1: :_omp_commands'",1,"packages/coding-agent/src/cli/completion-gen.ts"
+"Spotlight p50 / p90",1,"packages/stats/src/client/spotlight/Overhead.tsx"
+" at runtime:
+		// ",1,"packages/tui/src/tools/todo.ts"
+"omp ttsr scan src/",1,"packages/coding-agent/src/commands/ttsr.ts"
+"is:open author:@me",1,"packages/coding-agent/src/cli/gallery-fixtures/misc.ts"
+"TypeSafe Jev 1.13",1,"packages/coding-agent/src/commands/toks.ts"
+"omp read omp://",1,"packages/coding-agent/src/commands/read.ts"
+"GPT-3.5 · GPT-4",1,"packages/coding-agent/src/commands/toks.ts"
+"Claude Opus 4.5",1,"packages/coding-agent/src/cli/gallery-fixtures/preview-session.ts"
+"MMM d, HH:mm:ss",1,"packages/stats/src/client/data/formatters.ts"
+" autoresearch ",1,"packages/tui/src/apps/autoresearch-dashboard.ts"
+"OSC 99 (kitty)",1,"packages/tui/src/apps/debug/protocol-probe.ts"
+"), a switch's ",1,"packages/tui/src/charts/chart-plan.ts"
+"  Compat: true",1,"packages/coding-agent/src/modes/controllers/ssh-command-controller.ts"
+"omp git HEAD~2",1,"packages/coding-agent/src/commands/git.ts"
+"DeepSeek V3–V4",1,"packages/coding-agent/src/commands/toks.ts"
+":dir:_files -/",1,"packages/coding-agent/src/cli/completion-gen.ts"
+"token_budget?",1,"packages/coding-agent/src/modes/rpc/wire/commands.ts"
+"OpenAI Codex",1,"packages/tui/src/tools/web-search-types.ts"
+"Opus 4.7–4.9",1,"packages/coding-agent/src/commands/toks.ts"
+" whenToUse:",1,"packages/tui/src/overlays/agents-hub.ts"
+", body one ",1,"packages/tui/src/tools/todo.ts"
+" · daybreak",1,"packages/coding-agent/src/cli/usage-cli.ts"
+"MMM d HH:mm",1,"packages/stats/src/client/data/range.ts"
+"Spotlight $",1,"packages/stats/src/client/spotlight/Overhead.tsx"
+"OpenAI API",1,"packages/tui/src/tools/web-search-types.ts"
+"Kimi K2–K3",1,"packages/coding-agent/src/commands/toks.ts"
+"Token URL",1,"packages/tui/src/overlays/mcp-add-wizard.ts"
+"Client ID",1,"packages/tui/src/overlays/mcp-add-wizard.ts"
+"advisor: ",1,"packages/tui/src/overlays/tree-selector.ts"
+"Qwen 3.5+",1,"packages/coding-agent/src/commands/toks.ts"
+"Vibe: off",1,"packages/coding-agent/src/slash-commands/builtin-modes.ts"
+"$schema?",1,"packages/tui/src/theme/schema-validation.ts"
+"ok      ",1,"packages/coding-agent/src/cli/auth-gateway-cli.ts"
+"FAIL    ",1,"packages/coding-agent/src/cli/auth-gateway-cli.ts"
+"unknown ",1,"packages/coding-agent/src/cli/auth-gateway-cli.ts"
+"TTFT p50",1,"packages/coding-agent/src/cli/bench-cli.ts"
+"live    ",1,"packages/coding-agent/src/cli/worktree-cli.ts"
+"Claude ",1,"packages/tui/src/status-line/segments.ts"
+"◕ xhigh",1,"packages/tui/src/theme/symbols.ts"
+"Opus 5+",1,"packages/coding-agent/src/commands/toks.ts"
+" tokens",1,"packages/coding-agent/src/cli/usage-cli.ts"
+"ctrl+.",1,"packages/tui/src/keybindings.ts"
+"◒ high",1,"packages/tui/src/theme/symbols.ts"
