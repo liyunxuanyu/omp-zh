@@ -8,7 +8,7 @@
 | --- | --- |
 | 资产 | `omp.exe`（Windows x64 单文件） |
 | 大小 | 265,821,696 B |
-| SHA256 | `ab2f6f44ad2b9c3d2bf4968afbc3a3e6d2b933e7bc7a8e6a08495b2ebb318c8d13` |
+| SHA256 | `ab2f6f44ad2b9c3d2bf4968afbc3a6d2b933e7bc7a8e6a08495b2ebb318c8d13` |
 | 构建 | GitHub Actions `build-windows-zh`，`CROSS_TARGET=win32-x64`，成功 |
 | 来源提交 | 本仓库对应 tag `v18.22.2-zh.6` |
 
