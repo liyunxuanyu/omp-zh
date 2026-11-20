@@ -8,6 +8,7 @@
   "tips.auth_broker": "运行一次 `omp auth-broker serve`，所有机器都能拉取实时令牌 — 刷新密钥不离开主机；`omp auth-gateway` 作为兼容 OpenAI 的代理",
   "tips.bang_bash": "以 `!` 开头即可当 bash 运行 —— `!!` 运行且不把输出加入上下文",
   "tips.btw_side_question": "你可以用 /btw 来问一个旁支问题",
+  "tips.chillax": "觉得 Agent 想太多？说 `chillax` —— 在支持按消息调推理深度的模型上，思考强度会直接降到最低，回合中途也生效 —— 输入时会有光效",
   "tips.cleanse": "lint/类型错误堆积如山？`omp cleanse`（或就地 /cleanse）会用并行子代理排查并修复项目诊断问题 — Esc 可取消",
   "tips.collab": "实时协作：`/collab` 通过端到端加密中继分享你的会话 — 队友运行 `/join <link>` 即可查看工具调用和提示代理",
   "tips.completion_nested": "需要便宜的嵌套模型调用？用 `completion(x...)`。有大量任务？让 clanker 来处理！",

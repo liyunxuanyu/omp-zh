@@ -106,6 +106,32 @@ if (fs.existsSync(patchesFile) && !dryRun) {
 }
 
 
+// 资源文案：tips.txt 是逐行纯文本，不走 JS 字符串字面量扫描，只能按整行匹配替换。
+// 以前 roots/exts 只覆盖 packages/*/src 下的 .ts/.tsx/.js/.mjs，这个 .txt 被漏掉，
+// 所以启动页那行 Tip 一直是英文（dict/zh-tips.json 有中文也用不上）。
+const textAssets = ["packages/tui/src/prompt/tips.txt"];
+let assetReplaced = 0;
+for (const rel of textAssets) {
+  const f = path.join(upstream, rel);
+  if (!fs.existsSync(f)) continue;
+  const raw = fs.readFileSync(f, "utf8");
+  const eol = raw.includes("\r\n") ? "\r\n" : "\n";
+  let n = 0;
+  const lines = raw.split(/\r?\n/).map((line) => {
+    const key = line.trim();
+    if (!key || key.startsWith("[")) return line; // 条件标记（如 [NO-TERN]）保持原样
+    const zh = map[key];
+    if (!zh) return line;
+    n++;
+    return zh;
+  });
+  if (n > 0) {
+    assetReplaced += n;
+    if (!dryRun) fs.writeFileSync(f, lines.join(eol), "utf8");
+    console.log(`资源文案 ${rel}：替换 ${n} 行${dryRun ? "（dry-run，未写盘）" : ""}`);
+  }
+}
+
 const report = { files: 0, replaced: 0, byFile: {} };
 const walk = (dir) => {
   if (!fs.existsSync(dir)) return [];
@@ -151,6 +177,7 @@ const top = Object.entries(report.byFile)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 12);
 console.log(`模板补丁 ${patchCount} 处`);
+console.log(`资源文案替换 ${assetReplaced} 行（tips.txt 等纯文本资源）`);
 console.log(`替换 ${report.replaced} 处，涉及 ${report.files} 个文件${dryRun ? "（dry-run，未写盘）" : ""}`);
 for (const [f, n] of top) console.log(`  ${String(n).padStart(4)}  ${f}`);
 console.log(`报告：${reportFile}`);
