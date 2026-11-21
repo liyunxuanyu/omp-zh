@@ -110,6 +110,46 @@ if (fs.existsSync(patchesFile) && !dryRun) {
 // 以前 roots/exts 只覆盖 packages/*/src 下的 .ts/.tsx/.js/.mjs，这个 .txt 被漏掉，
 // 所以启动页那行 Tip 一直是英文（dict/zh-tips.json 有中文也用不上）。
 const textAssets = ["packages/tui/src/prompt/tips.txt"];
+
+// Core gateway feature: copy the audited gateway manager into the upstream
+// source tree and load it as a built-in inline extension. It is compiled into
+// omp-zh.exe; users do not need to pass --extension or install a plugin.
+const gatewaySourceDir = path.resolve(cwd, "patches/gateway");
+const gatewayTargetDir = path.join(upstream, "packages/coding-agent/src/gateway");
+const gatewayFiles = ["gateway-core.ts", "gateway-store.ts", "provider-manager.ts", "built-in-gateway.ts"];
+if (!dryRun) {
+  fs.mkdirSync(gatewayTargetDir, { recursive: true });
+  for (const file of gatewayFiles) {
+    const source = path.join(gatewaySourceDir, file);
+    if (!fs.existsSync(source)) throw new Error(`missing gateway patch source: ${source}`);
+    fs.copyFileSync(source, path.join(gatewayTargetDir, file));
+  }
+}
+const sdkFile = path.join(upstream, "packages/coding-agent/src/sdk.ts");
+if (!dryRun && fs.existsSync(sdkFile)) {
+  let sdk = fs.readFileSync(sdkFile, "utf8");
+  const importNeedle = 'import { createGatewayExtension, loadGatewayProviders } from "./gateway/built-in-gateway";';
+  if (!sdk.includes(importNeedle)) {
+    const anchor = 'import { createAutoresearchExtension } from "./autoresearch";';
+    if (!sdk.includes(anchor)) throw new Error("gateway patch anchor missing in sdk.ts");
+    sdk = sdk.replace(anchor, `${anchor}\n${importNeedle}`);
+  }
+  const inlineAnchor = "inlineExtensions.push(createAutoresearchExtension);";
+  if (!sdk.includes(inlineAnchor)) throw new Error("gateway inline extension anchor missing in sdk.ts");
+  if (!sdk.includes("inlineExtensions.push(createGatewayExtension);")) {
+    sdk = sdk.replace(inlineAnchor, `${inlineAnchor}\n\t\t\tinlineExtensions.push(createGatewayExtension);`);
+  }
+  const gatewayLoad = "\tawait loadGatewayProviders(modelRegistry, agentDir);";
+  if (!sdk.includes(gatewayLoad)) {
+    const registryMatch = sdk.match(/^[ \t]*const authStorage = modelRegistry\.authStorage;/m);
+    if (!registryMatch) throw new Error("gateway registry anchor missing in sdk.ts");
+    const registryAnchor = registryMatch[0];
+    const indent = registryAnchor.match(/^[ \t]*/)[0];
+    sdk = sdk.replace(registryAnchor, `${registryAnchor}\n${indent}${gatewayLoad.trim()}`);
+  }
+  fs.writeFileSync(sdkFile, sdk, "utf8");
+}
+
 let assetReplaced = 0;
 for (const rel of textAssets) {
   const f = path.join(upstream, rel);

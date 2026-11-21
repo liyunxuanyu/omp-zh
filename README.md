@@ -14,7 +14,7 @@
 | 可自动替换 | 7,457 条“英文→中文”，应用后覆盖 **7,341 处源码 / 582 个文件** |
 | 构建 | ✅ GitHub Actions 交叉编译通过，产出 Windows exe |
 | 运行时验证 | ✅ Linux 构建 `omp --help` 显示中文（1,661 个汉字） |
-| 构建管线 | 规划中：`bun run build` + `CROSS_TARGET=win32-x64` 交叉编译 |
+| 构建管线 | GitHub Actions 先应用 `patches/gateway/` 内置网关管理，再 `bun run build` + `CROSS_TARGET=win32-x64` 交叉编译 |
 | 终端适配 | 见 [README 的“已知限制”](#已知限制) |
 
 ## 目录
@@ -51,6 +51,12 @@ BUN_COMPILE_EXECUTABLE_PATH=/path/to/bun.exe \
 - `apply.mjs` 只替换完整文案（含空格或句末标点、长度 ≥ 4），跳过路径/URL/标识符；
 - 上游用干净的 git checkout，改完可 `git checkout -- .` 回滚；
 - 交叉编译需要三样东西：Bun 本体、`@oh-my-pi/pi-natives-win32-x64` 的 `.node`、Windows 版 Bun 运行时（`BUN_COMPILE_EXECUTABLE_PATH` 可绕开下载）。
+
+## 内置网关与模型能力
+
+构建产物内置 `/gateway` 与 `/网关` 面板，保留上游原生 `/model` 模型选择器。网关元数据写入 `~/.omp/agent/offline-kit-gateways/`，仅保存不含密钥的地址、协议和手动模型能力；密钥继续使用 OMP 原生登录存储。模型能力支持纯文本或文本+图片、`2K` 至 `4M` 上下文档位、自定义上下文 token，以及手动最大输出 token，并校验最大输出不超过上下文长度。
+
+`patches/gateway/` 不是外部扩展包：`apply.mjs` 会将它复制到上游源码，并在 SDK 启动时注册网关，因此离线二进制本身即可使用，无需网页配置或额外插件。
 
 ## 下载
 
