@@ -143,6 +143,10 @@ export default async function providerManager(pi: ExtensionAPI) {
     if (JSON.stringify(previous) === JSON.stringify(row)) return;
     if (!previous && ctx?.modelRegistry.getProviderBaseUrl(row.id)) {
       if (ctx.modelRegistry.getProviderBaseUrl(row.id) === row.baseUrl) {
+        // Core startup may have loaded this row before the inline command
+        // factory was bound. Update the same registry directly so edits replace
+        // its static model metadata instead of becoming a no-op.
+        ctx.modelRegistry.registerProvider(row.id, config(row));
         registered.set(row.id, row);
         return;
       }
